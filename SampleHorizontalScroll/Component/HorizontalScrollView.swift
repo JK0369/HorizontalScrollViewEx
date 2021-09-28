@@ -7,13 +7,7 @@
 
 import UIKit
 
-class HorizontalScrollView: BaseScrollView {
-
-    var model: [UIImage]? {
-        didSet {
-            bind()
-        }
-    }
+class HorizontalScrollView: BaseScrollView<[UIImage]> {
 
     let horizontalWidth: CGFloat
     let horizontalHeight: CGFloat
@@ -34,8 +28,8 @@ class HorizontalScrollView: BaseScrollView {
         showsHorizontalScrollIndicator = false
     }
 
-    override func bind() {
-        super.bind()
+    override func bind(_ model: [UIImage]) {
+        super.bind(model)
 
         setImages()
 

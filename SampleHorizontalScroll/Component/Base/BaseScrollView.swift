@@ -7,7 +7,16 @@
 
 import UIKit
 
-class BaseScrollView: UIScrollView {
+class BaseScrollView<Model>: UIScrollView {
+
+    var model: Model? {
+        didSet {
+            if let model = model {
+                bind(model)
+            }
+        }
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -20,5 +29,5 @@ class BaseScrollView: UIScrollView {
     }
 
     func configure() {}
-    func bind() {}
+    func bind(_ model: Model) {}
 }
